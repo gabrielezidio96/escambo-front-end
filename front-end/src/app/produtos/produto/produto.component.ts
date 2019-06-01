@@ -22,8 +22,7 @@ export class ProdutoComponent implements OnInit {
     this.service.formData = {
       id: null,
       nome: '',
-      descricao: '',
-      ativo: true
+      descricao: ''
     }
   }
 
