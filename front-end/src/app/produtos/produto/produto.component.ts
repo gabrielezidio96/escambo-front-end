@@ -43,7 +43,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   update(form: NgForm){
-    this.service.putProduto(form.value).subscribe(res =>{
+    this.service.putProduto(form.value.id, form.value).subscribe(res =>{
       this.toaster.info('Alterado com Sucesso', 'Resgistro de Produtos');
       this.resetForm(form);
       this.service.refreshList();

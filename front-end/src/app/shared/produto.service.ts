@@ -9,13 +9,13 @@ export class ProdutoService {
 
   formData: Produto;
   list:Produto[];
-  readonly rootURL = "http://localhost:3000/produtos";
+  readonly rootURL = "http://localhost:3000/produtos/";
   
 
   constructor(private http : HttpClient) { }
 
   postProduto(formData : Produto){
-    return this.http.post(this.rootURL+'/produto',formData);
+    return this.http.post(this.rootURL,formData);
   }
 
   refreshList(){
@@ -23,11 +23,11 @@ export class ProdutoService {
     .toPromise().then(res =>this.list = res as Produto[])
   }
 
-  putProduto(formData : Produto){
-    return this.http.put(this.rootURL+'/produto',formData);
+  putProduto(id : number, formData : Produto){
+    return this.http.put(this.rootURL+id, formData);
   }
 
   deleteProduto(id : number){
-    return this.http.delete(this.rootURL+'/produto/'+id);
+    return this.http.delete(this.rootURL+id);
   }
 }
